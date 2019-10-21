@@ -26,38 +26,7 @@
         <strong>错误！</strong>发生XXX错误
       </div> -->
       <form class="form-horizontal" id="settingsForm">
-        <div class="form-group">
-          <label for="site_logo" class="col-sm-2 control-label">网站图标</label>
-          <div class="col-sm-6">
-            <label class="form-image">
-              <input type="file">
-              <img src="../assets/img/logo.png">
-              <i class="mask fa fa-upload"></i>
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">站点名称</label>
-          <div class="col-sm-6">
-            <input name="title" class="form-control" type="text" placeholder="站点名称">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">评论</label>
-          <div class="col-sm-6">
-            <div class="checkbox">
-              <label><input  name="comment" value="true" type="checkbox" checked>开启评论功能</label>
-            </div>
-            <div class="checkbox">
-              <label><input  name="review" value="false" type="checkbox" checked>评论必须经人工批准</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-6">
-            <button type="submit" class="btn btn-primary">保存设置</button>
-          </div>
-        </div>
+        
       </form>
     </div>
   </div>
@@ -101,5 +70,42 @@
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/vendors/art-template/template-web.js"></script>
+  <script type='text/html' id='setTpl'>
+    <div class="form-group">
+        <label for="site_logo" class="col-sm-2 control-label">网站图标</label>
+        <div class="col-sm-6">
+          <label class="form-image">
+            <input type="file" id="avatar">
+            <input type="hidden" name='logo' id='logoimg' value='{{logo}}'>
+            <img src="{{logo}}" id='avatarprev'>
+            <i class="mask fa fa-upload"></i>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">站点名称</label>
+        <div class="col-sm-6">
+          <input name="title" class="form-control" type="text" placeholder="站点名称" value='{{title}}'>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">评论</label>
+        <div class="col-sm-6">
+          <div class="checkbox">
+            <label><input  name="comment" value="{{comment}}" type="checkbox" {{comment? 'checked':''}}>开启评论功能</label>
+          </div>
+          <div class="checkbox">
+            <label><input  name="review" value="{{review}}" type="checkbox" {{review? 'checked':''}}>评论必须经人工批准</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          <button type="submit" class="btn btn-primary">保存设置</button>
+        </div>
+      </div>
+  </script>
+  <script src="../assets/js/setting.js"></script>
 </body>
 </html>

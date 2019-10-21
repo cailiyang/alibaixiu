@@ -21,6 +21,7 @@ $.ajax({
     success:function (res) {
         console.log(res);
         $('#pinglunCount').html(res.total); 
+        
     }
 })
 
